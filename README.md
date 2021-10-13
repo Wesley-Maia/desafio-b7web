@@ -4,7 +4,7 @@ Este repositório contém todos os projetos desenvolvidos por _[Wesley Oliveira 
 
 
 - [x] #Projeto 1: _Lista de Tarefas com React_
-- [ ] #Projeto 2: _Sistemas de Finanças com React_
+- [x] #Projeto 2: _Sistemas de Finanças com React_
 - [ ] #Projeto 3: _Galeria de Fotos em React_
 - [ ] #Projeto 4: _Jogo RPG em React_
 - [ ] #Projeto 5: _Formulário Multi-etapas em React_
