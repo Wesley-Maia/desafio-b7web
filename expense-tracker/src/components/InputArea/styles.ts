@@ -10,19 +10,24 @@ export const Container = styled.div`
   
   display: flex;
   justify-content: center;
+  align-items: center;
 
   select {
     border-color: #fff transparent transparent transparent;
+    margin: 10px;
+    height: 30px;
   }
 
   input {
-    height: 50px
+    height: 30px;
     background-color: #FFF;
+    margin: 10px;
   }
 
   button {
-    background-color: green;
+    background-color: gray;
     border-radius: 5px;
-    height: 30px
+    height: 30px;
+    margin: 10px;
   }
 `;

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import * as C from './styles';
 import { Item } from '../../types/Item'
 
@@ -6,26 +7,40 @@ type Props ={
 }
 
 export const InputArea = ({ onAdd }: Props) => {
+  const [category, setCategory] = useState('food');
+  const [description, setDescription] = useState('');
+  const [valueField, setValueField] = useState(0);
+
   const handleAddEvent = () => {
     let newItem: Item = {
-      date: new Date(2021, 9, 27),
-      category: 'food',
-      title: 'Item de teste',
-      value: 250.25,
+      date: new Date(),
+      category: category,
+      title: description,
+      value: valueField,
     }
     onAdd(newItem);
   }
   return(
     <C.Container>
-      <select name="category">
+      <select value={category} onChange={e=>setCategory(e.target.value)}>
         <option value="food" >Alimentação</option>
         <option value="rent" >Aluguel</option>
         <option value="salary">Salário</option>
       </select>
 
-      <input type="text" name="title" placeholder="Descrição"/>
+      <input 
+        type="text" 
+        name="description" 
+        placeholder="Descrição"
+        onChange={e=>setDescription(e.target.value)}
+      />
 
-      <input type="text" name="cost" placeholder="R$"/>
+      <input 
+        type="text"
+        name="cost"
+        placeholder="R$"
+        onChange={e=>setValueField(parseFloat(e.target.value))}
+      />
 
       <button onClick={handleAddEvent}>Adicionar</button>
     </C.Container>
