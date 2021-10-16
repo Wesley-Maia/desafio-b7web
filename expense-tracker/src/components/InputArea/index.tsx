@@ -12,14 +12,36 @@ export const InputArea = ({ onAdd }: Props) => {
   const [valueField, setValueField] = useState(0);
 
   const handleAddEvent = () => {
-    let newItem: Item = {
-      date: new Date(),
-      category: category,
-      title: description,
-      value: valueField,
+    let errors: string[] = [];
+
+    if(description === ''){
+      errors.push('Título vazio!')
     }
-    onAdd(newItem);
+
+    if((valueField <= 0)||(isNaN(valueField))){
+      errors.push('Valor inválido!')
+    }
+
+    if(errors.length > 0){
+      alert(errors.join("\n"));
+    } else {
+      let newItem: Item = {
+        date: new Date(),
+        category: category,
+        title: description,
+        value: valueField,
+      }
+      onAdd(newItem);
+      // clearField();
+    }
   }
+
+  const clearField = () => {
+    setCategory('');
+    setDescription('');
+    setValueField(0);
+  }
+
   return(
     <C.Container>
       <select value={category} onChange={e=>setCategory(e.target.value)}>
